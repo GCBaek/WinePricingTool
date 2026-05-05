@@ -1,3 +1,6 @@
+
+복사
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -27,9 +30,9 @@
     --text-light: #6B7280;
     --white: #FFFFFF;
   }
-
+ 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
+ 
   body {
     background: var(--cream);
     font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
@@ -39,7 +42,7 @@
     justify-content: center;
     padding: 24px 16px;
   }
-
+ 
   body::before {
     content: '';
     position: fixed;
@@ -49,7 +52,7 @@
       radial-gradient(ellipse at 90% 80%, rgba(74,111,165,0.04) 0%, transparent 50%);
     pointer-events: none;
   }
-
+ 
   .card {
     background: var(--white);
     border-radius: 20px;
@@ -62,19 +65,19 @@
     overflow: hidden;
     animation: slideUp 0.5s ease;
   }
-
+ 
   @keyframes slideUp {
     from { opacity: 0; transform: translateY(20px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-
+ 
   .header {
     background: linear-gradient(135deg, #1A1A2E 0%, #2D2D44 60%, #3D3D5C 100%);
     padding: 32px 32px 28px;
     position: relative;
     overflow: hidden;
   }
-
+ 
   .header::after {
     content: '🍾';
     position: absolute;
@@ -84,7 +87,7 @@
     font-size: 56px;
     opacity: 0.18;
   }
-
+ 
   .header-label {
     font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
     font-size: 11px;
@@ -94,7 +97,7 @@
     opacity: 0.9;
     margin-bottom: 6px;
   }
-
+ 
   .header h1 {
     font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
     font-size: 22px;
@@ -102,7 +105,7 @@
     color: var(--white);
     line-height: 1.3;
   }
-
+ 
   .header p {
     margin-top: 8px;
     font-size: 12.5px;
@@ -110,15 +113,15 @@
     font-weight: 300;
     letter-spacing: 0.3px;
   }
-
+ 
   .body {
     padding: 28px 28px 24px;
   }
-
+ 
   .field {
     margin-bottom: 18px;
   }
-
+ 
   label {
     display: block;
     font-size: 12px;
@@ -128,11 +131,11 @@
     text-transform: uppercase;
     margin-bottom: 7px;
   }
-
+ 
   .input-wrap {
     position: relative;
   }
-
+ 
   .input-wrap .unit {
     position: absolute;
     right: 14px;
@@ -143,7 +146,7 @@
     font-weight: 500;
     pointer-events: none;
   }
-
+ 
   input[type="text"],
   input[type="number"] {
     width: 100%;
@@ -158,9 +161,9 @@
     transition: border-color 0.2s, box-shadow 0.2s;
     -moz-appearance: textfield;
   }
-
+ 
   input[type="text"] { padding: 12px 14px; }
-
+ 
   input[type="text"]:focus,
   input[type="number"]:focus {
     outline: none;
@@ -168,23 +171,56 @@
     box-shadow: 0 0 0 3px rgba(74,111,165,0.12);
     background: var(--white);
   }
-
+ 
   input::placeholder {
     color: var(--text-light);
     opacity: 0.5;
     font-weight: 300;
   }
-
-
+ 
+ 
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; }
-
+ 
+  .fee-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+  }
+ 
+  .fee-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 10px 0;
+    border: 1.5px solid var(--cream-dark);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--text);
+    background: var(--cream);
+    transition: border-color 0.15s, background 0.15s, font-weight 0.15s;
+    user-select: none;
+  }
+ 
+  .fee-label input[type="checkbox"] {
+    display: none;
+  }
+ 
+  .fee-label.active {
+    border-color: var(--primary);
+    font-weight: 600;
+    background: var(--cream-dark);
+  }
+ 
   .divider {
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--cream-dark), transparent);
     margin: 22px 0;
   }
-
+ 
   .calc-btn {
     width: 100%;
     padding: 14px;
@@ -200,14 +236,14 @@
     transition: transform 0.15s, box-shadow 0.15s;
     box-shadow: 0 4px 16px rgba(26,26,46,0.2);
   }
-
+ 
   .calc-btn:hover {
     transform: translateY(-1px);
     box-shadow: 0 6px 20px rgba(26,26,46,0.28);
   }
-
+ 
   .calc-btn:active { transform: translateY(0); }
-
+ 
   .result-box {
     display: none;
     margin-top: 22px;
@@ -217,14 +253,14 @@
     padding: 30px 24px;
     animation: fadeIn 0.4s ease;
   }
-
+ 
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(8px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-
+ 
   .result-box.show { display: block; }
-
+ 
   .result-main {
     display: flex;
     align-items: flex-end;
@@ -232,16 +268,16 @@
     margin-bottom: 0;
     padding-bottom: 0;
   }
-
+ 
   .result-product {
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 500;
     color: var(--text);
     letter-spacing: 0;
     margin-bottom: 4px;
     min-height: 16px;
   }
-
+ 
   .result-price {
     font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
     font-size: 16px;
@@ -249,18 +285,21 @@
     color: var(--primary);
     line-height: 1.4;
   }
-
+ 
   .result-raw {
     font-size: 13px;
+    color: var(--text-light);
+    text-align: right;
+    margin-top: 8px;
   }
-
+ 
   .copy-area {
     position: absolute;
     left: -9999px;
     opacity: 0;
     height: 0;
   }
-
+ 
   .copy-btn {
     margin-top: 14px;
     width: 100%;
@@ -277,37 +316,37 @@
     letter-spacing: 0.5px;
     box-shadow: 0 4px 16px rgba(26,26,46,0.2);
   }
-
+ 
   .copy-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(26,26,46,0.28); }
   .copy-btn:active { transform: translateY(0); }
   .copy-btn.copied { background: linear-gradient(135deg, #2D7A4F, #3A9A63); }
-
+ 
   .margin-bar-wrap {
     margin-top: 14px;
     padding-top: 12px;
     border-top: 1px solid var(--cream-dark);
   }
-
+ 
   .margin-bar-label {
     display: flex;
     justify-content: space-between;
     font-size: 13px;
   }
-
+ 
   .margin-bar-bg {
     height: 5px;
     background: var(--cream-dark);
     border-radius: 99px;
     overflow: hidden;
   }
-
+ 
   .margin-bar-fill {
     height: 100%;
     background: linear-gradient(90deg, var(--accent), var(--accent-light));
     border-radius: 99px;
     transition: width 0.6s ease;
   }
-
+ 
   .error-msg {
     display: none;
     margin-top: 12px;
@@ -319,9 +358,25 @@
     color: #C0392B;
     text-align: center;
   }
-
+ 
   .error-msg.show { display: block; }
-
+ 
+  .icon-copy-btn {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+ 
+  .icon-copy-btn:hover { background: var(--cream-dark); }
+ 
   .footer {
     padding: 14px 28px 20px;
     text-align: center;
@@ -339,7 +394,7 @@
     <h1>타사 와인 판매가 계산기</h1>
     <p>매입가 · 수수료 · 마진율을 입력하면 최적 판매가를 산출합니다</p>
   </div>
-
+ 
   <div class="body">
     <div class="field">
       <label>매입 업체명</label>
@@ -347,14 +402,14 @@
         <input type="text" id="vendorName" placeholder="매입 업체명을 입력하세요">
       </div>
     </div>
-
+ 
     <div class="field">
       <label>상품명</label>
       <div class="input-wrap">
         <input type="text" id="productName" placeholder="상품명을 입력하세요">
       </div>
     </div>
-
+ 
     <div class="field">
       <label>공급가 (부가세 별도)</label>
       <div class="input-wrap">
@@ -362,15 +417,33 @@
         <span class="unit">원</span>
       </div>
     </div>
-
+ 
     <div class="field">
       <label>임대 수수료율</label>
-      <div class="input-wrap">
-        <input type="number" id="fee" value="15" min="0" max="100" step="0.1" placeholder="0">
-        <span class="unit">%</span>
+      <div class="fee-grid">
+        <label class="fee-label" data-fee="10">
+          <input type="checkbox" name="fee" value="10"> 10%
+        </label>
+        <label class="fee-label" data-fee="12">
+          <input type="checkbox" name="fee" value="12"> 12%
+        </label>
+        <label class="fee-label active" data-fee="16">
+          <input type="checkbox" name="fee" value="16" checked> 16%
+        </label>
+        <label class="fee-label" data-fee="22">
+          <input type="checkbox" name="fee" value="22"> 22%
+        </label>
+        <label class="fee-label" id="customFeeLabel" data-fee="custom">
+          <input type="checkbox" name="fee" value="custom">
+          <span id="customPlaceholder" style="font-size:14px;color:var(--text-light);">기타</span>
+          <input type="number" id="customFeeInput" min="0" max="100" step="0.1"
+            style="display:none;width:36px;border:none;border-bottom:1.5px solid var(--cream-dark);font-size:14px;text-align:center;background:transparent;color:var(--text);outline:none;padding:0;"
+            onclick="event.stopPropagation();">
+          <span id="customFeePct" style="display:none;font-size:14px;">%</span>
+        </label>
       </div>
     </div>
-
+ 
     <div class="field">
       <label>희망 마진율</label>
       <div class="input-wrap">
@@ -378,141 +451,233 @@
         <span class="unit">%</span>
       </div>
     </div>
-
+ 
     <div class="divider"></div>
-
+ 
     <button class="calc-btn" onclick="calculate()">판매가 계산하기</button>
-
-    <div class="error-msg" id="errMsg">입력값을 확인해주세요. 수수료율 + 마진율이 너무 높습니다.</div>
-
-    <div class="result-box" id="resultBox">
-      <div class="result-main">
-        <div>
-          <div class="result-product" id="rProduct"></div>
-          <div class="result-price" id="rFinal">—</div>
-        </div>
-        <div class="result-raw" id="rRaw"></div>
-      </div>
-
-      <div class="margin-bar-wrap">
-        <div class="margin-bar-label">
-          <span>마진율</span>
-          <span id="rBarPct">0%</span>
-        </div>
-        <div class="margin-bar-bg">
-          <div class="margin-bar-fill" id="marginBar" style="width:0%"></div>
-        </div>
-      </div>
-    </div>
-
-    <button class="copy-btn" onclick="copyResult()" id="copyBtn" style="display:none;">📋 결과 복사하기</button>
+ 
+    <div class="error-msg" id="errMsg">입력값을 확인해주세요.</div>
+    <div id="resultsContainer" style="display:flex;flex-direction:column;gap:12px;"></div>
+    <button class="copy-btn" id="copyAllBtn" style="display:none;" onclick="copyAll()">📋 모두 복사하기</button>
+ 
     <textarea class="copy-area" id="copyArea" readonly></textarea>
   </div>
-
+ 
   <div class="footer">부가세 10% 기준 · 올림: 100만원 미만 천원 / 100만원 이상 만원</div>
 </div>
-
+ 
 <script>
+const COPY_ICON = '<rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>';
+const CHECK_ICON = '<polyline points="20 6 9 17 4 12"></polyline>';
+ 
 function fmt(n) {
   return Math.round(n).toLocaleString('ko-KR') + '원';
 }
-
+ 
 function roundPrice(p) {
   if (p < 1000000) return Math.ceil(p / 1000) * 1000;
   else             return Math.ceil(p / 10000) * 10000;
 }
-
-function calculate() {
-  const cost   = parseFloat(document.getElementById('cost').value) || 0;
-  const feeR   = parseFloat(document.getElementById('fee').value) / 100 || 0;
-  const marginR = parseFloat(document.getElementById('margin').value) / 100 || 0;
-
-  const errMsg   = document.getElementById('errMsg');
-  const resultBox = document.getElementById('resultBox');
-
-  // 공식: P = (cost×1.1 - cost×0.1) / (1 - feeR - (1-feeR)/1.1×0.1 - marginR)
+ 
+function calcResult(cost, feeR, marginR) {
   const denom = 1 - feeR - ((1 - feeR) / 1.1 * 0.1) - marginR;
-
-  if (denom <= 0 || cost <= 0) {
-    errMsg.classList.add('show');
-    resultBox.classList.remove('show');
-    return;
-  }
-
-  errMsg.classList.remove('show');
-
-  const numerator = cost * 1.1 - cost * 0.1; // = cost
-  const rawPrice  = numerator / denom;
+  if (denom <= 0 || cost <= 0) return null;
+  const rawPrice   = (cost * 1.1 - cost * 0.1) / denom;
   const finalPrice = roundPrice(rawPrice);
-
-  // 손익 분석 (반올림된 판매가 기준)
-  const P         = finalPrice;
-  const costTotal = cost * 1.1;
-  const feeAmt    = P * feeR;
-  const vatOut    = ((P - feeAmt) / 1.1) * 0.1;
-  const vatIn     = cost * 0.1;
-  const marginAmt = P - costTotal - feeAmt - vatOut + vatIn;
-  const marginPct = (marginAmt / P) * 100;
-
-  const productName = document.getElementById('productName').value.trim();
-  const vendorName  = document.getElementById('vendorName').value.trim();
-  document.getElementById('rProduct').textContent = productName || '';
-  document.getElementById('rFinal').textContent  = fmt(finalPrice);
-  document.getElementById('rRaw').textContent    = '원계산: ' + Math.round(rawPrice).toLocaleString() + '원';
-
-  const barW = Math.min(Math.max(marginPct, 0), 50) * 2;
-  document.getElementById('marginBar').style.width = barW + '%';
-  document.getElementById('rBarPct').textContent   = marginPct.toFixed(1) + '%';
-
-  // 복사용 텍스트 생성
-  const lines = [
-    '업체명 : ' + (vendorName || '-'),
-    '상품명 : ' + (productName || '-'),
-    '판매가 : ' + fmt(finalPrice),
-    '수수료 : ' + Math.round(feeR * 100) + '%',
-  ].join('\n\n');
-
-  document.getElementById('copyArea').value = lines;
-  document.getElementById('copyBtn').classList.remove('copied');
-  document.getElementById('copyBtn').textContent = '📋 결과 복사하기';
-  document.getElementById('copyBtn').style.display = 'block';
-
-  resultBox.classList.add('show');
+  const P          = finalPrice;
+  const costTotal  = cost * 1.1;
+  const feeAmt     = P * feeR;
+  const vatOut     = ((P - feeAmt) / 1.1) * 0.1;
+  const vatIn      = cost * 0.1;
+  const marginAmt  = P - costTotal - feeAmt - vatOut + vatIn;
+  const marginPct  = (marginAmt / P) * 100;
+  return { rawPrice, finalPrice, marginPct };
 }
-
-function copyResult() {
-  const area = document.getElementById('copyArea');
-  const btn  = document.getElementById('copyBtn');
-
-  const succeed = () => {
-    btn.textContent = '✅ 복사 완료!';
-    btn.classList.add('copied');
-    setTimeout(() => {
-      btn.textContent = '📋 결과 복사하기';
-      btn.classList.remove('copied');
-    }, 2000);
-  };
-
-  // 방법 1: 모바일 포함 최신 방식
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(area.value).then(succeed).catch(() => {
-      // 방법 2: 구형 fallback
-      area.focus();
-      area.select();
-      area.setSelectionRange(0, 99999);
-      if (document.execCommand('copy')) succeed();
-    });
-  } else {
-    // 방법 2: 구형 fallback
+ 
+function toggleCopy(btn, text) {
+  const svg    = btn.querySelector('svg');
+  const copied = btn.dataset.copied === 'true';
+ 
+  if (!copied) {
+    // fallback 방식으로 먼저 복사 (동기 실행 보장)
+    const area = document.createElement('textarea');
+    area.value = text;
+    area.style.cssText = 'position:fixed;left:-9999px;top:-9999px;opacity:0;';
+    document.body.appendChild(area);
     area.focus();
     area.select();
     area.setSelectionRange(0, 99999);
-    if (document.execCommand('copy')) succeed();
+ 
+    let success = false;
+    try { success = document.execCommand('copy'); } catch(e) {}
+ 
+    // clipboard API도 시도 (HTTPS 환경)
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).catch(() => {});
+    }
+ 
+    document.body.removeChild(area);
+ 
+    svg.innerHTML = CHECK_ICON;
+    svg.style.color = '#2D7A4F';
+    btn.dataset.copied = 'true';
+ 
+  } else {
+    svg.innerHTML = COPY_ICON;
+    svg.style.color = 'var(--text-light)';
+    btn.dataset.copied = 'false';
   }
 }
-
+ 
+function getSelectedFees() {
+  const checks = document.querySelectorAll('input[name="fee"]');
+  const fees = [];
+  checks.forEach(c => {
+    if (!c.checked) return;
+    if (c.value === 'custom') {
+      const v = parseFloat(document.getElementById('customFeeInput').value);
+      if (!isNaN(v) && v > 0) fees.push(v);
+    } else {
+      fees.push(parseFloat(c.value));
+    }
+  });
+  return fees;
+}
+ 
+function calculate() {
+  const cost    = parseFloat(document.getElementById('cost').value) || 0;
+  const marginR = parseFloat(document.getElementById('margin').value) / 100 || 0;
+  const errMsg  = document.getElementById('errMsg');
+  const container = document.getElementById('resultsContainer');
+  const fees    = getSelectedFees();
+  const productName = document.getElementById('productName').value.trim();
+  const vendorName  = document.getElementById('vendorName').value.trim();
+ 
+  if (cost <= 0 || fees.length === 0) {
+    errMsg.classList.add('show');
+    container.innerHTML = '';
+    return;
+  }
+ 
+  const results = fees.map(fee => calcResult(cost, fee / 100, marginR));
+  if (results.every(r => r === null)) {
+    errMsg.classList.add('show');
+    container.innerHTML = '';
+    return;
+  }
+ 
+  errMsg.classList.remove('show');
+  container.innerHTML = '';
+  const allCopyTexts = [];
+ 
+  fees.forEach((fee, i) => {
+    const r = results[i];
+    if (!r) return;
+    const barW = Math.min(Math.max(r.marginPct, 0), 50) * 2;
+    const copyText = [
+      vendorName  ? '업체명 : ' + vendorName  : null,
+      productName ? '상품명 : ' + productName : null,
+      '판매가 : ' + fmt(r.finalPrice) + ' (수수료 ' + fee + '%)',
+    ].filter(Boolean).join('\n\n');
+ 
+    allCopyTexts.push(copyText);
+ 
+    const div = document.createElement('div');
+    div.className = 'result-box show';
+    div.style.position = 'relative';
+    div.innerHTML = `
+      <button class="icon-copy-btn" data-copied="false" title="복사하기">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-light);">${COPY_ICON}</svg>
+      </button>
+      <div class="result-main">
+        <div>
+          <div class="result-product">${productName || ''}</div>
+          <div class="result-price">${fmt(r.finalPrice)}</div>
+        </div>
+      </div>
+      <div class="margin-bar-wrap">
+        <div class="margin-bar-label">
+          <span style="font-size:13px;color:var(--text-light);">수수료율 ${fee}%</span>
+          <span style="font-size:13px;">마진 ${r.marginPct.toFixed(1)}%</span>
+        </div>
+        <div class="margin-bar-bg">
+          <div class="margin-bar-fill" style="width:${barW}%"></div>
+        </div>
+        <div class="result-raw">원계산: ${Math.round(r.rawPrice).toLocaleString()}원</div>
+      </div>`;
+ 
+    const copyBtn = div.querySelector('.icon-copy-btn');
+    copyBtn.addEventListener('click', () => toggleCopy(copyBtn, copyText));
+    container.appendChild(div);
+  });
+ 
+  const copyAllBtn = document.getElementById('copyAllBtn');
+  if (allCopyTexts.length >= 2) {
+    copyAllBtn.style.display = 'block';
+    copyAllBtn.dataset.texts = JSON.stringify(allCopyTexts);
+    copyAllBtn.textContent = '📋 모두 복사하기';
+    copyAllBtn.classList.remove('copied');
+  } else {
+    copyAllBtn.style.display = 'none';
+  }
+}
+ 
+function copyAll() {
+  const btn = document.getElementById('copyAllBtn');
+  const texts = JSON.parse(btn.dataset.texts || '[]');
+  const fullText = texts.join('\n\n──────────\n\n');
+ 
+  const area = document.createElement('textarea');
+  area.value = fullText;
+  area.style.cssText = 'position:fixed;left:-9999px;top:-9999px;opacity:0;';
+  document.body.appendChild(area);
+  area.focus();
+  area.select();
+  area.setSelectionRange(0, 99999);
+  try { document.execCommand('copy'); } catch(e) {}
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(fullText).catch(() => {});
+  }
+  document.body.removeChild(area);
+ 
+  btn.textContent = '✅ 모두 복사 완료!';
+  btn.classList.add('copied');
+  setTimeout(() => {
+    btn.textContent = '📋 모두 복사하기';
+    btn.classList.remove('copied');
+  }, 2000);
+}
+ 
+// 체크박스 라벨 토글
+document.querySelectorAll('.fee-label').forEach(label => {
+  label.addEventListener('click', () => {
+    const cb = label.querySelector('input[type="checkbox"]');
+    setTimeout(() => {
+      label.classList.toggle('active', cb.checked);
+      if (cb.value === 'custom' && cb.checked) {
+        document.getElementById('customPlaceholder').style.display = 'none';
+        document.getElementById('customFeeInput').style.display = 'inline-block';
+        document.getElementById('customFeePct').style.display = 'inline-block';
+        document.getElementById('customFeeInput').focus();
+      }
+      if (cb.value === 'custom' && !cb.checked && !document.getElementById('customFeeInput').value) {
+        document.getElementById('customPlaceholder').style.display = 'inline';
+        document.getElementById('customFeeInput').style.display = 'none';
+        document.getElementById('customFeePct').style.display = 'none';
+      }
+    }, 0);
+  });
+});
+ 
+document.getElementById('customFeeInput').addEventListener('focus', () => {
+  const cb = document.querySelector('input[name="fee"][value="custom"]');
+  cb.checked = true;
+  document.getElementById('customFeeLabel').classList.add('active');
+});
+ 
 // 엔터키로도 계산
 document.addEventListener('keydown', e => { if (e.key === 'Enter') calculate(); });
 </script>
 </body>
 </html>
+ 
